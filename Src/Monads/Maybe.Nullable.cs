@@ -2,7 +2,7 @@
 
 namespace System.Monads
 {
-	public static class MaybeNullable
+	public static partial class MaybeNullable
 	{
 		/// <summary>
 		/// Allows to do some <paramref name="action"/> on <paramref name="source"/> if its not null
@@ -14,7 +14,7 @@ namespace System.Monads
 		public static Nullable<TSource> Do<TSource>(this Nullable<TSource> source, Action<Nullable<TSource>> action)
 			where TSource : struct
 		{
-			if (source.HasValue == true)
+			if (source.HasValue)
 			{
 				action(source);
 			}
@@ -72,10 +72,10 @@ namespace System.Monads
 		/// <param name="source">Source object for operating</param>
 		/// <param name="condition">Condition which should be checked</param>
 		/// <returns><paramref name="source"/> if <paramref name="condition"/> is true, or null otherwise</returns>
-		public static Nullable<TSource> If<TSource>(this Nullable<TSource> source, Func<Nullable<TSource>, bool> condition)
+		public static TSource? If<TSource>(this TSource? source, Func<TSource?, bool> condition)
 			where TSource : struct
 		{
-			if ((source.HasValue == true) && (condition(source) == true))
+			if (source.HasValue && condition(source))
 			{
 				return source;
 			}
@@ -92,10 +92,10 @@ namespace System.Monads
 		/// <param name="source">Source object for operating</param>
 		/// <param name="condition">Condition which should be checked</param>
 		/// <returns><paramref name="source"/> if <paramref name="condition"/> is true, or null otherwise</returns>
-		public static Nullable<TSource> IfNot<TSource>(this Nullable<TSource> source, Func<Nullable<TSource>, bool> condition)
+		public static TSource? IfNot<TSource>(this TSource? source, Func<TSource?, bool> condition)
 			where TSource : struct
 		{
-			if ((source.HasValue == true) && (condition(source) == false))
+			if ((source.HasValue) && (condition(source) == false))
 			{
 				return source;
 			}
@@ -115,7 +115,7 @@ namespace System.Monads
 		public static TInput Recover<TInput>(this Nullable<TInput> source, Func<TInput> action)
 			where TInput : struct
 		{
-			return source.HasValue == true ? source.Value : action();
+			return source ?? action();
 		}
 
 		/// <summary>
@@ -272,7 +272,7 @@ namespace System.Monads
 					}
 					else
 					{
-						throw ex;
+						throw;
 					}
 				}
 			}

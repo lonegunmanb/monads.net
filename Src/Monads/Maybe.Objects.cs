@@ -75,7 +75,7 @@ namespace System.Monads
 		public static TSource If<TSource>(this TSource source, Func<TSource, bool> condition)
 			where TSource : class
 		{
-			if ((source != default(TSource)) && (condition(source) == true))
+			if ((source != default(TSource)) && condition(source))
 			{
 				return source;
 			}
@@ -216,7 +216,7 @@ namespace System.Monads
 				}
 				catch (Exception ex)
 				{
-					if (expectedException.Any(exp => exp.IsInstanceOfType(ex)) == true)
+					if (expectedException.Any(exp => exp.IsInstanceOfType(ex)))
 					{
 						return new Tuple<TSource, Exception>(source, ex);
 					}
@@ -278,7 +278,7 @@ namespace System.Monads
 				}
 				catch (Exception ex)
 				{
-					if (exceptionChecker(ex) == true)
+					if (exceptionChecker(ex))
 					{
 						return new Tuple<TResult, Exception>(result, ex);
 					}
@@ -311,7 +311,7 @@ namespace System.Monads
 				}
 				catch (Exception ex)
 				{
-					if (expectedException.Any(exp => exp.IsInstanceOfType(ex)) == true)
+					if (expectedException.Any(exp => exp.IsInstanceOfType(ex)))
 					{
 						return new Tuple<TResult, Exception>(result, ex);
 					}
