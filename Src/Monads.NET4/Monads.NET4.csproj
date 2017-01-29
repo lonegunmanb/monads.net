@@ -79,6 +79,7 @@
     <Compile Include="AsyncMaybe.IEnumerable.cs" />
     <Compile Include="AsyncMaybe.Nullable.cs" />
     <Compile Include="AsyncMaybe.Objects.cs" />
+    <Compile Include="Funcs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
