@@ -1,6 +1,6 @@
 ﻿namespace System.Monads
 {
-	public static class ArgumentCheck
+	public static partial class ArgumentCheck
 	{
 		/// <summary>
 		/// Allows to check <paramref name="source"/> for null and throw ArgumentNullException if it is
