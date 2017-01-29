@@ -2,7 +2,7 @@
 
 namespace System.Monads
 {
-	public static class MaybeObjects
+	public static partial class MaybeObjects
 	{
 		/// <summary>
 		/// Allows to do some <paramref name="action"/> on <paramref name="source"/> if its not null
@@ -188,10 +188,7 @@ namespace System.Monads
 					{
 						return new Tuple<TSource, Exception>(source, ex);
 					}
-					else
-					{
-						throw ex;
-					}
+			        throw;
 				}
 			}
 
@@ -223,10 +220,7 @@ namespace System.Monads
 					{
 						return new Tuple<TSource, Exception>(source, ex);
 					}
-					else
-					{
-						throw ex;
-					}
+				    throw;
 				}
 			}
 
@@ -288,10 +282,7 @@ namespace System.Monads
 					{
 						return new Tuple<TResult, Exception>(result, ex);
 					}
-					else
-					{
-						throw ex;
-					}
+				    throw;
 				}
 			}
 
@@ -324,10 +315,7 @@ namespace System.Monads
 					{
 						return new Tuple<TResult, Exception>(result, ex);
 					}
-					else
-					{
-						throw ex;
-					}
+				    throw;
 				}
 			}
 
