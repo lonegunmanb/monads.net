@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace System.Monads
 {
-	public static class MaybeIEnumerable
+	public static partial class MaybeIEnumerable
 	{
 		/// <summary>
 		/// Allows to do some <paramref name="action"/> on each element of <paramref name="source"/>
