@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace System.Monads
 {
-	public static class MaybeIDictionary
+	public static partial class MaybeIDictionary
 	{
 		/// <summary>
 		/// Allows to do some <paramref name="action"/> on each element of <paramref name="source"/>

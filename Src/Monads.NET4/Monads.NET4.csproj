@@ -74,6 +74,7 @@
     <Compile Include="..\Monads\VersionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="AsyncMaybe.IDictionary.cs" />
     <Compile Include="AsyncMaybe.Nullable.cs" />
     <Compile Include="AsyncMaybe.Objects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
